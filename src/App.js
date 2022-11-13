@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import DataViewer from "./components/DataViewer";
+import dataArr from "./data";
+import style from "./App.module.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.app}>
+      {dataArr.map((dataObj) => {
+        return <DataViewer data={{ ...dataObj }} key={dataObj.id} color={0} />;
+      })}
     </div>
   );
-}
+};
 
 export default App;
