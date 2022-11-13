@@ -5,4 +5,4 @@ In order to run this app you must have node.js installed and follow these steps:
 3. Run the command "npm start" and wait until a browser window pops up with the app. 
    If nothing happens try to navigate yourself to "http://localhost:3000". 
 
-If there are and issues please don't hesitate to contact me. 
+If there are any issues please don't hesitate to contact me. 
