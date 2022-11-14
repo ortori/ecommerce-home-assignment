@@ -44,4 +44,5 @@ fetch("./data.json")
   .then((response) => response.json())
   .then((data) => {
     data.forEach((data) => displayData(data, false, 0));
-  });
+  })
+  .catch((err) => console.log(`There was a problem! (${err})`));
