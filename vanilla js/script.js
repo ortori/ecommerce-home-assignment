@@ -9,7 +9,7 @@ const colors = [
   "#D58BDD",
 ];
 
-const displayData = (data, nested, color, div) => {
+const displayData = (data, nested, colorIdx, div) => {
   const mainDiv = document.createElement("div");
   const pId = document.createElement("p");
   const pSiteName = document.createElement("p");
@@ -18,7 +18,7 @@ const displayData = (data, nested, color, div) => {
   mainDiv.classList.add("main-container");
   mainDiv.style.minWidth = nested ? "200px" : "300px";
   mainDiv.style.marginLeft = nested ? "auto" : "";
-  mainDiv.style.backgroundColor = colors[color];
+  mainDiv.style.backgroundColor = colors[colorIdx];
   pId.textContent = `Id: ${data.id}`;
   pSiteName.textContent = `Site Name: ${data.name}`;
   pSiteUrl.textContent = `Site Url: ${data.name}`;
@@ -26,9 +26,7 @@ const displayData = (data, nested, color, div) => {
   aSiteUrl.target = "_blank";
   aSiteUrl.rel = "noreferrer";
   aSiteUrl.appendChild(pSiteUrl);
-  mainDiv.appendChild(pId);
-  mainDiv.appendChild(pSiteName);
-  mainDiv.appendChild(aSiteUrl);
+  mainDiv.append(pId, pSiteName, aSiteUrl);
   if (nested) {
     div.appendChild(mainDiv);
   } else {
@@ -36,7 +34,7 @@ const displayData = (data, nested, color, div) => {
     body.appendChild(mainDiv);
   }
   data?.subData?.forEach((data) => {
-    displayData(data, true, color + 1, mainDiv);
+    displayData(data, true, colorIdx + 1, mainDiv);
   });
 };
 
